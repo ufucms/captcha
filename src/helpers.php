@@ -42,9 +42,9 @@ if (!function_exists('captcha_check')) {
      * @param string $value
      * @return bool
      */
-    function captcha_check(string $value): bool
+    function captcha_check(string $value, bool $delete_captcha = true): bool
     {
-        return app('captcha')->check($value);
+        return app('captcha')->check($value, $delete_captcha);
     }
 }
 
@@ -54,8 +54,8 @@ if (!function_exists('captcha_api_check')) {
      * @param string $key
      * @return bool
      */
-    function captcha_api_check(string $value, string $key): bool
+    function captcha_api_check(string $value, string $key, bool $delete_captcha = true): bool
     {
-        return app('captcha')->check_api($value, $key);
+        return app('captcha')->check_api($value, $key, $delete_captcha);
     }
 }

@@ -459,7 +459,7 @@ class Captcha
      * @param string $value
      * @return bool
      */
-    public function check(string $value): bool
+    public function check(string $value, bool $delete_captcha = true): bool
     {
         if (!$this->session->has('captcha')) {
             return false;
@@ -475,7 +475,7 @@ class Captcha
         if($this->encrypt) $key = Crypt::decrypt($key);
         $check = $this->hasher->check($value, $key);
         // if verify pass,remove session
-        if ($check) {
+        if ($delete_captcha) {
             $this->session->remove('captcha');
         }
 
@@ -489,14 +489,14 @@ class Captcha
      * @param string $key
      * @return bool
      */
-    public function check_api($value, $key): bool
+    public function check_api($value, $key, bool $delete_captcha = true): bool
     {
         if (!Cache::pull('captcha_record_' . $key)) {
             return false;
         }
 
         if($this->encrypt) $key = Crypt::decrypt($key);
-        return $this->hasher->check($value, $key);
+        return $this->hasher->check($value, $key, $delete_captcha);
     }
 
     /**
