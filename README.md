@@ -34,14 +34,14 @@ for Laravel 5 to 9 [Captcha for Laravel Laravel 4](https://github.com/mewebstudi
 ## Installation
 
 The Captcha Service Provider can be installed via [Composer](http://getcomposer.org) by requiring the
-`mews/captcha` package and setting the `minimum-stability` to `dev` (required for Laravel 5) in your
+`ufucms/captcha` package and setting the `minimum-stability` to `dev` (required for Laravel 5) in your
 project's `composer.json`.
 
 ```json
 {
     "require": {
         "laravel/framework": "5.0.*",
-        "mews/captcha": "~3.0"
+        "ufucms/laravel-captcha": "dev-master"
     },
     "minimum-stability": "stable"
 }
@@ -51,7 +51,7 @@ or
 
 Require this package with composer:
 ```
-composer require mews/captcha
+composer require ufucms/laravel-captcha:"dev-master"
 ```
 
 Update your packages with ```composer update``` or install with ```composer install```.
